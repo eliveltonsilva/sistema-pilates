@@ -1,16 +1,3 @@
-//
-// Plugin: Select2
-//
-
-//Signle select
-// .select2-container--default,
-// .select2-selection {
-//   &.select2-container--focus,
-//   &:focus,
-//   &:active {
-//     outline: none;
-//   }
-// }
 
 .select2-container--default {
   .select2-selection--single {
@@ -217,14 +204,14 @@
 }
 
 // text-sm / form-control-sm override
-select.form-control-sm ~ {
+select.form-control-sm {
   .select2-container--default {
     font-size: $font-size-sm;
   }
 }
 
 .text-sm,
-select.form-control-sm ~ {
+select.form-control-sm {
   .select2-container--default {
     .select2-selection--single {
       height: $input-height-sm;
