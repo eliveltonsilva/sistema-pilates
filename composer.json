@@ -1,0 +1,19 @@
+{
+    "name": "elivelton/sistema-pilates",
+    "description": "Sistema Pilates",
+    "authors": [
+        {
+            "name": "Elivelton",
+            "email": "eliveltongsoficial@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "app\\": "app/"
+        },
+        "classmap": [
+            "app"
+        ]
+    }
+}
