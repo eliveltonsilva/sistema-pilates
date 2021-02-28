@@ -16,3 +16,13 @@ CREATE TABLE `pilates`.`tb_pessoa` (
 ENGINE=InnoDB
 DEFAULT CHARSET=utf8mb4
 COLLATE=utf8mb4_general_ci;
+
+CREATE TABLE pilates.tb_modalidade (
+	id INTEGER auto_increment NOT NULL,
+	descricao varchar(100) NOT NULL,
+	CONSTRAINT tb_modalidade_pk PRIMARY KEY (id)
+)
+ENGINE=InnoDB
+DEFAULT CHARSET=utf8mb4
+COLLATE=utf8mb4_general_ci;
+

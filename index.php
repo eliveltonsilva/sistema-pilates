@@ -69,15 +69,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="app/view/alunos/alunos.php" class="nav-link">
+                                        <a href="app/view/aluno/aluno.php" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p>Alunos</p>
+                                            <p>Aluno</p>
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="app/view/matriculas/matriculas.php" class="nav-link">
+                                        <a href="app/view/modalidade/add.php" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
-                                            <p>Matrículas</p>
+                                            <p>Modalidade</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="app/view/matricula/matricula.php" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Matrícula</p>
                                         </a>
                                     </li>
                                 </ul>
@@ -117,9 +123,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <div class="row">
 
                             <?php
-                            $alunos = \app\models\AlunoModel::getList();
-//                var_dump($alunos);
-
                             ?>
 
                         </div>

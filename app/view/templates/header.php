@@ -18,6 +18,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="../../../public/dist/css/adminlte.min.css">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  
+   <!--alertifyjs-->
+   <link rel="stylesheet" href="alertifyjs/css/alertify.min.css">
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -67,15 +70,21 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="../alunos/alunos.php" class="nav-link">
+                  <a href="../aluno/aluno.php" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Alunos</p>
+                    <p>Aluno</p>
+                  </a>
+                </li>
+                 <li class="nav-item">
+                     <a href="../modalidade/add.php" class="nav-link">
+                    <i class="far fa-circle nav-icon"></i>
+                    <p>Modalidade</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="../matriculas/matriculas.php" class="nav-link">
+                  <a href="../matricula/matricula.php" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
-                    <p>Matrículas</p>
+                    <p>Matrícula</p>
                   </a>
                 </li>
               </ul>
