@@ -122,7 +122,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <div class="container-fluid">
                         <div class="row">
 
-                            <h1>Conteúdo</h1>
+                            <?php
+                            ?>
 
                         </div>
                         <!-- /.row -->
