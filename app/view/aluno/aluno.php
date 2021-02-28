@@ -26,4 +26,7 @@
   <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
+
+<script src="../../../public/jquery/jquery.min.js"></script>
+<script src="../../../public/myfiles/js/modalidade.js"></script>
 <?php require("../templates/footer.php") ?>
