@@ -2,6 +2,6 @@
 
 require("../../../vendor/autoload.php");
 
-function lista() {
-    return \app\model\ModalidadeModel::lista();
+function listar() {
+    return \app\model\ModalidadeModel::listar();
 }

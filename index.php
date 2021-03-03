@@ -75,7 +75,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a href="app/view/modalidade/add.php" class="nav-link">
+                                        <a href="app/view/modalidade" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Modalidade</p>
                                         </a>
@@ -123,6 +123,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <div class="row">
 
                             <?php
+                            $modalidade = new app\entities\Modalidade();
+                            $modalidade->setDescricao("c");
+                            
+                            $mModel = new app\model\ModalidadeModel();
+                            
+                            $res = $mModel->recuperaModalidade($modalidade);
+                            if(count($res) > 0){
+                                echo "cadastrado";
+                            }else{
+                                echo "ok";
+                            }
                             ?>
 
                         </div>
