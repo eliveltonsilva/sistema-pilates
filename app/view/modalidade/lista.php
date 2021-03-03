@@ -8,10 +8,12 @@
         </tr>
     </thead>
     <tbody>
-        <?php foreach (lista() as $value) {?>
+        <?php foreach (listar() as $value) {?>
         <tr>
             <td><?= $value['descricao'] ?></td>
-            <td>cat</td>
+            <td>
+                <a href="add.php?act=editar&id=<?= $value['id'] ?>" class="btn btn-success btn-sm">Editar</a>
+            </td>
         </tr>
         <?php }?>
     </tbody>

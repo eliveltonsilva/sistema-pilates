@@ -1,4 +1,4 @@
-<?php require("../templates/header.php") ?>
+<?php require("../templates/header.php"); ?>
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -16,19 +16,36 @@
 
     <!-- Main content -->
     <div class="content">
-        <form id="frm">
-            <div class="form-row">
+        <?php if (isset($_GET['act']) == 'editar') { ?>
+            <form id="frm"><!--inicio formulario de edição-->
+                <h1><?= $_GET['id'] ?></h1>
+                <div class="form-row">
 
-                <div class="form-group col-md-12">
-                    <label for="descricao">Descrição</label>
-                    <input type="text" class="form-control" name="descricao" id="descricao" autocomplete="off">
-                </div>
+                    <div class="form-group col-md-12">
+                        <label for="descricao">Descrição</label>
+                        <input type="text" class="form-control" name="descricao" id="descricao" autocomplete="off">
+                    </div>
 
-                <div class="form-group col-md-12 text-left">
-                    <input type="submit" id="adicionar" value="Adicionar" class="btn btn-info">
+                    <div class="form-group col-md-12 text-left">
+                        <input type="submit" id="adicionar" value="Adicionar" class="btn btn-info">
+                    </div>
                 </div>
-            </div>
-        </form>
+            </form><!--fim formulario de edição-->
+        <?php } else { ?>
+            <form id="frm"><!--inicio formulario de adicionar-->
+                <div class="form-row">
+
+                    <div class="form-group col-md-12">
+                        <label for="descricao">Descrição</label>
+                        <input type="text" class="form-control" name="descricao" id="descricao" autocomplete="off">
+                    </div>
+
+                    <div class="form-group col-md-12 text-left">
+                        <input type="submit" id="adicionar" value="Adicionar" class="btn btn-info">
+                    </div><!--fim formulario de adicionar-->
+                </div>
+            </form>
+        <?php } ?>
     </div>
     <!-- /.content -->
 </div>
@@ -36,6 +53,25 @@
 
 
 <script src="../../../public/jquery/jquery.min.js"></script>
-<script src="../../../public/alertifyjs/alertify.min.js"></script>
-<script src="../../../public/myfiles/js/modalidade.js"></script>
+<script>
+    $('#frm').submit(function (e) {
+        e.preventDefault();
+
+        let descricao = document.getElementById('descricao');
+
+
+        $.ajax({
+            url: "../../controller/modalidade/addController.php",
+            method: "POST",
+            data: {
+                descricao: descricao.value
+            },
+            dataType: "json",
+        }).done(function (result) {
+            alert(result);
+            descricao.value = "";
+        });
+
+    });
+</script>
 <?php require("../templates/footer.php"); ?>
