@@ -2,31 +2,41 @@
 
 namespace app\model;
 
-class ModalidadeModel {
+class ModalidadeModel extends \app\config\Sql{
 
-    private $sql;
-    
-    public function __construct() {
-        $this->sql = new \app\config\Sql();
+    public function insert(\app\entities\Modalidade $modalidade) {
+        
+        try {
+            $sql = "INSERT INTO modalidades (descricao) VALUES (:desc)";
+            $stmt = $this->conectar()->prepare($sql);
+            $stmt->bindValue(":desc", $modalidade->getDescricao());
+            $stmt->execute();
+        } catch (\PDOException $exc) {
+            throw new \Exception($exc->getTraceAsString());
+        }
     }
-    
-    public function adicionar(\app\entities\Modalidade $modalidade) {
-        $this->sql->exeSelect("insert into tb_modalidade (descricao) values (:descricao)",
-            array(
-                ":descricao" => $modalidade->getDescricao()
-            ));
+
+    public function getModalidade(\app\entities\Modalidade $modalidade) {
+        try {
+            $sql = "SELECT * FROM modalidades m WHERE m.descricao = ':desc'";
+            $stmt = $this->conectar()->prepare($sql);
+            $stmt->bindValue(":desc", $modalidade->getDescricao());
+            $stmt->execute();
+            return $stmt->fetch();
+        } catch (\PDOException $exc) {
+            throw new \Exception($exc->getTraceAsString());
+        }
     }
-    
-    public function recuperaModalidade(\app\entities\Modalidade $modalidade){
-        return $this->sql->exeSelect("select * from tb_modalidade where descricao = :descricao", 
-            array(
-                ":descricao" => $modalidade->getDescricao()
-            ));
-    }
-    
-    public static function listar(){
-         $sql = new \app\config\Sql();
-         return $sql->exeQuery("select * from tb_modalidade");
+
+    public static function get() {
+        try {
+            $sql = "SELECT * FROM modalidades m";
+            $stmt = $this->conectar()->prepare($sql);
+            $stmt->execute();
+            return $stmt->fetchAll();
+        } catch (\PDOException $exc) {
+            throw new \Exception($exc->getTraceAsString());
+        }
     }
 
 }
