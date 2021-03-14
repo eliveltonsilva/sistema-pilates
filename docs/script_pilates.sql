@@ -1,4 +1,4 @@
-CREATE TABLE `modalidades` (
+﻿CREATE TABLE `modalidades` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `descricao` VARCHAR(100) NOT NULL,
   PRIMARY KEY (`id`));
@@ -77,11 +77,11 @@ CREATE TABLE `aulas` (
   `data_final` DATE NULL COMMENT 'ULTIMO DIA DA AULA, FINAL DA MATRÍCULO, EX: 01/01/21 ATÉ 01/06/21',
   `dias_semanas` VARCHAR(50) NOT NULL COMMENT 'PODE SER, SEG, TER, QUA, QUI, SEX, OU TODOS OS DIAS DA SEMANA',
   `hora` VARCHAR(2) NOT NULL COMMENT 'VAI SER SEMPRE 1 HORA POR DIA',
-  `modalides_id` INT NOT NULL,
+  `modalidades_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   CONSTRAINT `fk_aulas_modalides1`
-    FOREIGN KEY (`modalides_id`)
-    REFERENCES `modalides` (`id`)
+    FOREIGN KEY (`modalidades_id`)
+    REFERENCES `modalidades` (`id`)
 )COLLATE='utf8mb4_general_ci';
 
 CREATE TABLE `matriculas` (
