@@ -25,7 +25,6 @@ class ModalidadeModel
         $stmt->bindValue(":desc", $modalidade->getDescricao());
         $stmt->execute();
         return $stmt->fetch();
-    }
 
     public static function get()
     {

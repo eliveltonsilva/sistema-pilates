@@ -16,62 +16,46 @@
 
     <!-- Main content -->
     <div class="content">
-        <?php if (isset($_GET['act']) == 'editar') { ?>
-            <form id="frm"><!--inicio formulario de edição-->
-                <h1><?= $_GET['id'] ?></h1>
-                <div class="form-row">
+        <form id="frm"><!--inicio formulario de adicionar-->
+            <div class="form-row">
 
-                    <div class="form-group col-md-12">
-                        <label for="descricao">Descrição</label>
-                        <input type="text" class="form-control" name="descricao" id="descricao" autocomplete="off">
-                    </div>
-
-                    <div class="form-group col-md-12 text-left">
-                        <input type="submit" id="adicionar" value="Adicionar" class="btn btn-info">
-                    </div>
+                <div class="form-group col-md-12">
+                    <label for="descricao">Descrição</label>
+                    <input type="text" class="form-control  btn-sm" name="descricao" id="descricao" autocomplete="off">
                 </div>
-            </form><!--fim formulario de edição-->
-        <?php } else { ?>
-            <form id="frm"><!--inicio formulario de adicionar-->
-                <div class="form-row">
 
-                    <div class="form-group col-md-12">
-                        <label for="descricao">Descrição</label>
-                        <input type="text" class="form-control" name="descricao" id="descricao" autocomplete="off">
-                    </div>
-
-                    <div class="form-group col-md-12 text-left">
-                        <input type="submit" id="adicionar" value="Adicionar" class="btn btn-info">
-                    </div><!--fim formulario de adicionar-->
-                </div>
-            </form>
-        <?php } ?>
+                <div class="form-group col-md-12 text-left">
+                    <button id="salvar" class="btn btn-info btn-sm">Salvar</button>
+                </div><!--fim formulario de adicionar-->
+            </div>
+        </form>
     </div>
     <!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
-
-
 <script src="../../../public/jquery/jquery.min.js"></script>
 <script>
-    $('#frm').submit(function (e) {
-        e.preventDefault();
+    document.getElementById('salvar').addEventListener('click', function (event) {
+        let inputs = document.querySelectorAll('#frm [name]');
+        event.preventDefault();
 
-        let descricao = document.getElementById('descricao');
+        inputs.forEach(function (field, index) {
+            if (field.value == "") {
+                alert("Todos os campos são obritagórios");
+            } else {
+                let dadosForm = $('#frm').serialize();
 
-
-        $.ajax({
-            url: "../../controller/modalidade/insertController.php",
-            method: "POST",
-            data: {
-                descricao: descricao.value
-            },
-            dataType: "json",
-        }).done(function (result) {
-            alert(result);
-            descricao.value = "";
+                $.ajax({
+                    type: 'POST',
+                    url: '../../controller/modalidade/addController.php',
+                    data: dadosForm,
+                    dataType: 'json',
+                    success: function (response) {
+                        console.log(response);
+                    }
+                });
+            }
         });
-
     });
 </script>
 <?php require("../templates/footer.php"); ?>
