@@ -8,5 +8,5 @@ $modalidade = new app\entities\Modalidade();
 $modalidadeModel = new app\model\ModalidadeModel();
 
 $descricao = filter_input(INPUT_POST, 'descricao', FILTER_SANITIZE_STRING);
-$modalidade->setDescricao("Pilates");
+$modalidade->setDescricao($descricao);
 $modalidadeModel->insert($modalidade);

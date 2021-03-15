@@ -61,7 +61,7 @@
 
 
         $.ajax({
-            url: "../../controller/modalidade/addController.php",
+            url: "../../controller/modalidade/insertController.php",
             method: "POST",
             data: {
                 descricao: descricao.value

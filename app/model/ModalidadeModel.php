@@ -2,41 +2,37 @@
 
 namespace app\model;
 
-class ModalidadeModel extends \app\config\Sql{
+use app\config\Sql;
+use app\entities\Modalidade;
 
-    public function insert(\app\entities\Modalidade $modalidade) {
-        
-        try {
-            $sql = "INSERT INTO modalidades (descricao) VALUES (:desc)";
-            $stmt = $this->conectar()->prepare($sql);
-            $stmt->bindValue(":desc", $modalidade->getDescricao());
-            $stmt->execute();
-        } catch (\PDOException $exc) {
-            throw new \Exception($exc->getTraceAsString());
-        }
+class ModalidadeModel
+{
+
+    public function insert(Modalidade $modalidade)
+    {
+        $con = new Sql();
+        $sql = "INSERT INTO modalidades (descricao) VALUES (:desc)";
+        $stmt = $con->conectar()->prepare($sql);
+        $stmt->bindValue(":desc", $modalidade->getDescricao());
+        $stmt->execute();
     }
 
-    public function getModalidade(\app\entities\Modalidade $modalidade) {
-        try {
-            $sql = "SELECT * FROM modalidades m WHERE m.descricao = ':desc'";
-            $stmt = $this->conectar()->prepare($sql);
-            $stmt->bindValue(":desc", $modalidade->getDescricao());
-            $stmt->execute();
-            return $stmt->fetch();
-        } catch (\PDOException $exc) {
-            throw new \Exception($exc->getTraceAsString());
-        }
+    public function getModalidade(\app\entities\Modalidade $modalidade)
+    {
+        $con = new Sql();
+        $sql = "SELECT * FROM modalidades m WHERE m.descricao = ':desc'";
+        $stmt = $con->conectar()->prepare($sql);
+        $stmt->bindValue(":desc", $modalidade->getDescricao());
+        $stmt->execute();
+        return $stmt->fetch();
     }
 
-    public static function get() {
-        try {
-            $sql = "SELECT * FROM modalidades m";
-            $stmt = $this->conectar()->prepare($sql);
-            $stmt->execute();
-            return $stmt->fetchAll();
-        } catch (\PDOException $exc) {
-            throw new \Exception($exc->getTraceAsString());
-        }
+    public static function get()
+    {
+        $con = new Sql();
+        $sql = "SELECT * FROM modalidades m";
+        $stmt = $con->conectar()->prepare($sql);
+        $stmt->execute();
+        return $stmt->fetchAll();
     }
-
 }
