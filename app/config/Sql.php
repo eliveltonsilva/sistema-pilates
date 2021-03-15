@@ -2,9 +2,9 @@
 
 namespace app\config;
 
-require("bd.php");
-
 use PDO;
+
+require("bd.php");
 
 class Sql {
 

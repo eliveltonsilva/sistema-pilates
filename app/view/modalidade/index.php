@@ -1,4 +1,4 @@
-<?php require("../templates/header.php") ?>
+<?php require("../templates/header.php"); ?>
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -19,7 +19,7 @@
                 Modalidades
             </div>
             <div class="card-body">
-                <div id="lista"></div>
+                <div id="get"></div>
             </div>
         </div>
     </div>
@@ -35,6 +35,6 @@
         location.href = 'add.php';
     }
     
-    $('#lista').load("lista.php");
+    $('#get').load("get.php");
 </script>
 <?php require("../templates/footer.php"); ?>

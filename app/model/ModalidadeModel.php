@@ -2,28 +2,36 @@
 
 namespace app\model;
 
-class ModalidadeModel extends \app\config\Sql {
+use app\config\Sql;
+use app\entities\Modalidade;
 
-    public function insert(\app\entities\Modalidade $modalidade) {
+class ModalidadeModel
+{
+
+    public function insert(Modalidade $modalidade)
+    {
+        $con = new Sql();
         $sql = "INSERT INTO modalidades (descricao) VALUES (:desc)";
-        $stmt = $this->conectar()->prepare($sql);
+        $stmt = $con->conectar()->prepare($sql);
         $stmt->bindValue(":desc", $modalidade->getDescricao());
         $stmt->execute();
     }
 
-    public function getModalidade(\app\entities\Modalidade $modalidade) {
+    public function getModalidade(\app\entities\Modalidade $modalidade)
+    {
+        $con = new Sql();
         $sql = "SELECT * FROM modalidades m WHERE m.descricao = ':desc'";
-        $stmt = $this->conectar()->prepare($sql);
+        $stmt = $con->conectar()->prepare($sql);
         $stmt->bindValue(":desc", $modalidade->getDescricao());
         $stmt->execute();
         return $stmt->fetch();
-    }
 
-    public static function get() {
+    public static function get()
+    {
+        $con = new Sql();
         $sql = "SELECT * FROM modalidades m";
-        $stmt = $this->conectar()->prepare($sql);
+        $stmt = $con->conectar()->prepare($sql);
         $stmt->execute();
         return $stmt->fetchAll();
     }
-
 }
