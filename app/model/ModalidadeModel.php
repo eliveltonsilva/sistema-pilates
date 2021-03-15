@@ -17,6 +17,16 @@ class ModalidadeModel
         $stmt->execute();
     }
 
+    public function edit(Modalidade $modalidade)
+    {
+        $con = new Sql();
+        $sql = "UPDATE modalidades SET descricao = :desc WHERE id = :id";
+        $stmt = $con->conectar()->prepare($sql);
+        $stmt->bindValue(":desc", $modalidade->getDescricao());
+        $stmt->bindValue(":id", $modalidade->getId());
+        $stmt->execute();
+    }
+
     public function getModalidade(\app\entities\Modalidade $modalidade)
     {
         $con = new Sql();
@@ -25,6 +35,7 @@ class ModalidadeModel
         $stmt->bindValue(":desc", $modalidade->getDescricao());
         $stmt->execute();
         return $stmt->fetch();
+    }
 
     public static function get()
     {
