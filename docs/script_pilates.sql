@@ -15,7 +15,7 @@ CREATE TABLE `professores` (
   PRIMARY KEY (`id`));
 
 CREATE TABLE `cidades` (
-  `id` INT NOT NULL,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `descricao` VARCHAR(100) NOT NULL,
   `uf` VARCHAR(2) NULL COMMENT 'EXEMPLO: PR/SP',
   PRIMARY KEY (`id`));
