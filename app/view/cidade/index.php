@@ -5,7 +5,7 @@
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
-           
+
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
@@ -14,20 +14,20 @@
     <div class="content">
         <div class="card">
             <div class="card-header text-center">
-            <button onclick="redirect();" class="btn btn-info btn-sm">+ Novo</button>
+                <button onclick="redirect();" class="btn btn-info btn-sm">+ Novo</button>
             </div>
             <div class="card-body">
                 <div id="get"></div>
             </div>
         </div>
 
-        <div class="modal fade" id="atualiza" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal fade" id="atualizaCategoria" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
             <!-- Inicio Modal - atualizar categoria -->
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h6 class="modal-title">Editando Modalidade</h6>
+                            <h6 class="modal-title">Editando Categoria</h6>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -63,5 +63,5 @@
 <!-- /.content-wrapper -->
 
 <script src="../../../public/jquery/jquery.min.js"></script>
-<script src="../../../public/js/modalidades/index.js"></script>
+<script src="../../../public/js/cidades/index.js"></script>
 <?php require("../templates/footer.php"); ?>
