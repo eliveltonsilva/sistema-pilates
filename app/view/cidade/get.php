@@ -8,7 +8,8 @@ require("../../controller/modalidade/getController.php");
             <tr>
                 <th scope="col">Ações</th>
                 <th scope="col">#</th>
-                <th scope="col">Categoria</th>
+                <th scope="col">Cidade</th>
+                <th scope="col">Uf</th>
             </tr>
         </thead>
         <tbody>
@@ -18,6 +19,7 @@ require("../../controller/modalidade/getController.php");
                         <button class="btn btn-outline-info btn-sm" data-toggle="modal" data-target="#atualiza" onclick="selecionaLinha('<?= $value['id'] ?>', '<?= $value['descricao'] ?>')">Editar</button>
                     </td>
                     <td><?= $value['id'] ?></td>
+                    <td><?= $value['descricao'] ?></td>
                     <td><?= $value['descricao'] ?></td>
                 </tr>
             <?php } ?>

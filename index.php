@@ -75,6 +75,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                         </a>
                                     </li>
                                     <li class="nav-item">
+                                        <a href="app/view/cidade/" class="nav-link">
+                                            <i class="far fa-circle nav-icon"></i>
+                                            <p>Cidade</p>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
                                         <a href="app/view/modalidade" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Modalidade</p>
