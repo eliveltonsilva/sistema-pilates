@@ -1,31 +1,20 @@
-//chama tabela de get.php
-$("#get").load("get.php");
+$(document).ready(function () {
+//    $('#descricao').keyup(function () {
 
-redirect = function () {
-  location.href = "insert.php";
-};
+    $.ajax({
+        url: "../../controller/modalidade/getController.php",
+        type: 'post',
+        dataType: 'json',
+        success: function (data) {
 
-selecionaLinha = function (id, descricao) {
-  $("#id").val(id);
-  $("#descricao").val(descricao);
-};
-
-atualizaTabela = function () {
-  $("#get").load("index.php");
-};
-
-document.getElementById("editar").addEventListener("click", function (event) {
-  event.preventDefault();
-
-  let dadosForm = $("#frm").serialize();
-
-  $.ajax({
-    type: "POST",
-    url: "../../controller/modalidade/editController.php",
-    data: dadosForm,
-    dataType: "json",
-    success: function (response) {
-      console.log(response);
-    },
-  });
-});
+            for (var item in data) {
+                console.log(data[item].id)
+                $('#dados').prepend(
+                    "<tr>" +
+                        "<td>" + data[item].id + "</td>" +
+                        "<td>" + data[item].descricao +"</td>" +
+                    "</tr>")
+            }
+        }
+    })
+})

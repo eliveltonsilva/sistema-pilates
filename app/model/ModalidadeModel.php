@@ -27,7 +27,7 @@ class ModalidadeModel
         $stmt->execute();
     }
 
-    public function getModalidade(\app\entities\Modalidade $modalidade)
+    public function getModalidade(Modalidade $modalidade)
     {
         $con = new Sql();
         $sql = "SELECT * FROM modalidades m WHERE m.descricao = ':desc'";
@@ -37,11 +37,12 @@ class ModalidadeModel
         return $stmt->fetch();
     }
 
-    public static function get()
+    public static function get($descricao)
     {
         $con = new Sql();
-        $sql = "SELECT * FROM modalidades m";
+        $sql = "SELECT * FROM modalidades m WHERE m.descricao LIKE ?";
         $stmt = $con->conectar()->prepare($sql);
+        $stmt->bindValue(1, "%{$descricao}%");
         $stmt->execute();
         return $stmt->fetchAll();
     }

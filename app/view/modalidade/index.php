@@ -1,67 +1,46 @@
-<?php require("../templates/header.php"); ?>
+<?php
+// require("../templates/header.php");
+require("../../controller/modalidade/getController.php");
+?>
 
-<!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <div class="content-header">
-        <div class="container-fluid">
-           
-        </div><!-- /.container-fluid -->
-    </div>
-    <!-- /.content-header -->
-
-    <!-- Main content -->
-    <div class="content">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<form id="frm">
+                    <div class="form-group">
+                        <label for="descricao">Email address</label>
+                        <input type="text" class="form-control btn-sm" id="descricao" name="descricao" placeholder="Digite a modalidade" autocomplete="off">
+                        <input class="btn btn-success btn-sm" type="submit"/>
+                    </div><!--form-group-->
+                </form><!--form-->
         <div class="card">
-            <div class="card-header text-center">
-            <button onclick="redirect();" class="btn btn-info btn-sm">+ Novo</button>
-            </div>
+            <div class="card-header">
+                <h3>Modalidades</h3>
+            </div><!--card-header-->
             <div class="card-body">
-                <div id="get"></div>
-            </div>
-        </div>
+                
+                <table id="resultado" class="table table-bordered">
+                    <thead>                  
+                        <tr>
+                            <th style="width: 10px">#</th>
+                            <th>Modalidades</th>
+                        </tr>
+                    </thead>
+                    <tbody id="dados">
+                    </tbody>
+                </table><!--table-->
+            </div><!--card-body-->
+        </div><!--card-->
+</body>
+</html>
 
-        <div class="modal fade" id="atualiza" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <!-- Inicio Modal - atualizar categoria -->
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h6 class="modal-title">Editando Modalidade</h6>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form id="frm">
-                                <!--inicio formulario de adicionar-->
-                                <div class="form-row">
-                                    <div class="form-group col-md-12">
-                                        <label for="id">id</label>
-                                        <input type="text" class="form-control  btn-sm" name="id" id="id" autocomplete="off" readonly>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="descricao">Descrição</label>
-                                        <input type="text" class="form-control  btn-sm" name="descricao" id="descricao" autocomplete="off">
-                                    </div>
-
-                                    <div class="form-group col-md-12 text-center">
-                                        <button id="editar" class="btn btn-info btn-sm" onclick="atualizaTabela()" data-dismiss="modal">Editar</button>
-                                        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cancelar</button>
-                                    </div>
-                                    <!--fim formulario de adicionar-->
-                                </div>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div><!-- Inicio Modal - atualizar categoria -->
-    </div>
-    <!-- /.content -->
-</div>
-<!-- /.content-wrapper -->
 
 <script src="../../../public/jquery/jquery.min.js"></script>
 <script src="../../../public/js/modalidades/index.js"></script>
-<?php require("../templates/footer.php"); ?>
+<?php //require("../templates/footer.php"); ?>
