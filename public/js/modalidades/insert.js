@@ -1,3 +1,7 @@
+function getSelector(value){
+    return document.querySelector(value);
+}
+
 document.getElementById("salvar").addEventListener("click", function (event) {
   let inputs = document.querySelectorAll("#frm [name]");
   event.preventDefault();

@@ -128,19 +128,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <div class="container-fluid">
                         <div class="row">
 
-                            <?php
-                            $modalidade = new app\entities\Modalidade();
-                            $modalidade->setDescricao("c");
-                            
-                            $mModel = new app\model\ModalidadeModel();
-                            
-                            $res = $mModel->recuperaModalidade($modalidade);
-                            if(count($res) > 0){
-                                echo "cadastrado";
-                            }else{
-                                echo "ok";
-                            }
-                            ?>
 
                         </div>
                         <!-- /.row -->

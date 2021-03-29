@@ -8,9 +8,9 @@ require("bd.php");
 
 class Sql {
 
-    public function conectar() {
-        $conn = new PDO("mysql:host=" . DB_HOST . ";dbname=" . DB_NAME, DB_USER, DB_PASS);
-        return $conn;
+    public function getConnect() {
+       $conn = new PDO("pgsql:host=".DB_HOST.";port=".DB_PORT.";dbname=".DB_NAME.";user=".DB_USER.";password=". DB_PASS);
+       return $conn;
     }
 
 }

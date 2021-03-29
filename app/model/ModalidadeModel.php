@@ -2,48 +2,23 @@
 
 namespace app\model;
 
-use app\config\Sql;
-use app\entities\Modalidade;
+class ModalidadeModel {
 
-class ModalidadeModel
-{
-
-    public function insert(Modalidade $modalidade)
-    {
-        $con = new Sql();
-        $sql = "INSERT INTO modalidades (descricao) VALUES (:desc)";
-        $stmt = $con->conectar()->prepare($sql);
+    public function insert(\app\entities\Modalidade $modalidade) {
+        
+        //status inicial
+        $statusInicial = 'A';
+        
+        //data do cadastro
+        $dataCadastro = new \DateTime();
+        
+        $conn = new \app\config\Sql();
+        $sql = "insert into tb_modalidades (descricao, inserido, status) values (:modalidade, :data, :status)";
+        $stmt = $conn->getConnect()->prepare($sql);
         $stmt->bindValue(":desc", $modalidade->getDescricao());
+        $stmt->bindValue("data", $dataCadastro->format('Y-m-d'));
+        $stmt->bindValue("status", $statusInicial);
         $stmt->execute();
     }
 
-    public function edit(Modalidade $modalidade)
-    {
-        $con = new Sql();
-        $sql = "UPDATE modalidades SET descricao = :desc WHERE id = :id";
-        $stmt = $con->conectar()->prepare($sql);
-        $stmt->bindValue(":desc", $modalidade->getDescricao());
-        $stmt->bindValue(":id", $modalidade->getId());
-        $stmt->execute();
-    }
-
-    public function getModalidade(Modalidade $modalidade)
-    {
-        $con = new Sql();
-        $sql = "SELECT * FROM modalidades m WHERE m.descricao = ':desc'";
-        $stmt = $con->conectar()->prepare($sql);
-        $stmt->bindValue(":desc", $modalidade->getDescricao());
-        $stmt->execute();
-        return $stmt->fetch();
-    }
-
-    public static function get($descricao)
-    {
-        $con = new Sql();
-        $sql = "SELECT * FROM modalidades m WHERE m.descricao LIKE ?";
-        $stmt = $con->conectar()->prepare($sql);
-        $stmt->bindValue(1, "%{$descricao}%");
-        $stmt->execute();
-        return $stmt->fetchAll();
-    }
 }
