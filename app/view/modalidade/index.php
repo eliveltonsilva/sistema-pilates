@@ -5,58 +5,67 @@
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
-           
+
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
 
     <!-- Main content -->
     <div class="content">
-        <div class="card">
-            <div class="card-header text-center">
-            <button onclick="redirect();" class="btn btn-info btn-sm">+ Novo</button>
-            </div>
-            <div class="card-body">
-                <div id="get"></div>
-            </div>
-        </div>
-
-        <div class="modal fade" id="atualiza" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-            <!-- Inicio Modal - atualizar categoria -->
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h6 class="modal-title">Editando Modalidade</h6>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <form id="frm">
-                                <!--inicio formulario de adicionar-->
-                                <div class="form-row">
-                                    <div class="form-group col-md-12">
-                                        <label for="id">id</label>
-                                        <input type="text" class="form-control  btn-sm" name="id" id="id" autocomplete="off" readonly>
-                                    </div>
-                                    <div class="form-group col-md-12">
-                                        <label for="descricao">Descrição</label>
-                                        <input type="text" class="form-control  btn-sm" name="descricao" id="descricao" autocomplete="off">
-                                    </div>
-
-                                    <div class="form-group col-md-12 text-center">
-                                        <button id="editar" class="btn btn-info btn-sm" onclick="atualizaTabela()" data-dismiss="modal">Editar</button>
-                                        <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Cancelar</button>
-                                    </div>
-                                    <!--fim formulario de adicionar-->
-                                </div>
-                            </form>
-                        </div>
-                    </div>
+        <div class="container-fluid">
+            <div class="row mb-1"><!-- inicio botão nova modalidade-->
+                <div class="col-sm-auto">
+                    <h3 class="m-0 text-dark">Buscar Modalidades</h3>
+                </div>
+                <div class="col-sm-auto">
+                    <button id="novo" class="btn btn-block btn-success"><i class="fa fa-plus-circle" aria-hidden="true"></i>&nbsp;Nova Modalidade</button>
                 </div>
             </div>
-        </div><!-- Inicio Modal - atualizar categoria -->
+        </div><!-- fim botão nova modalidade-->
+
+        <div class="form-row align-items-center"><!--inicio form de pesquisa-->
+            <div class="col-md-auto col-sm-12 my-1">
+                <label>Status</label>
+            </div>
+            <div class="col-md-auto col-sm-12 my-1">
+                <select name="opcoes" id="opcoes" class="form-control">
+                    <option selected="selected" value="Ativo">Ativo</option>
+                    <option value="Excluido">Excluído</option>
+                    <option value="Todos">Todos</option>
+                </select>
+            </div>
+            <div class="col-md-auto col-sm-12 my-1">
+                <label>Modalidade</label>
+            </div>
+            <div class="col-xl-5 col-lg-7 my-1">
+                <input name="modalidade" type="text" id="modalidade" class="form-control" title="Buscar Por Modalidade" placeholder="Buscar por Modalidades">
+            </div>                                      
+            <div class="col-md-auto col-sm-12 my-1">
+                <button class="btn btn-primary btn-block"><i class="fa fa-search esp_icone" aria-hidden="true"></i>Buscar</button>
+            </div>
+        </div><!--fim form de pesquisa-->
+
+        <table id="tblListaSalas" class="table table-hover table-sm">
+            <thead>
+                <tr>
+                    <th>Ações</th>
+                    <th>Modalidade</th>
+                    <th>Inserido em</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <a href="#" class="btn btn-outline-danger btn-sm" title="Excluir Modalidade">Excluir</a>
+                        <a href="#" class="btn btn-outline-info btn-sm" title="Editar Modalidade">Editar</a>
+                    </td>
+                    <td>Pilates</td>
+                    <td>12/02/1993</td>
+                    <td>Ativo</td>
+                </tr>
+            </tbody>
+        </table>
     </div>
     <!-- /.content -->
 </div>

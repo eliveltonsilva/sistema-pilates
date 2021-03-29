@@ -70,25 +70,25 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </a>
               <ul class="nav nav-treeview">
                 <li class="nav-item">
-                  <a href="../aluno/aluno.php" class="nav-link">
+                  <a href="../aluno/index.php" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Aluno</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="../cidade/" class="nav-link">
+                  <a href="../cidade/index.php" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Cidade</p>
                   </a>
                 </li>
                  <li class="nav-item">
-                     <a href="../modalidade" class="nav-link">
+                     <a href="../modalidade/index.php" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Modalidade</p>
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a href="../matricula/matricula.php" class="nav-link">
+                  <a href="../matricula/index.php" class="nav-link">
                     <i class="far fa-circle nav-icon"></i>
                     <p>Matrícula</p>
                   </a>
