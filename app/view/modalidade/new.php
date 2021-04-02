@@ -20,12 +20,12 @@
             <div class="form-row">
 
                 <div class="form-group col-md-12">
-                    <label for="descricao">Descrição</label>
-                    <input type="text" class="form-control  btn-sm" name="descricao" id="descricao" autocomplete="off">
+                    <label for="modalidade">Modalidade</label>
+                    <input type="text" class="form-control" name="modalidade" id="modalidade" autocomplete="off">
                 </div>
 
                 <div class="form-group col-md-12 text-center">
-                    <button id="salvar" class="btn btn-info btn-sm">Salvar</button>
+                    <button id="save" class="bg-gradient-success btn"> Salvar</button>
                 </div><!--fim formulario de adicionar-->
             </div>
         </form>
@@ -34,5 +34,5 @@
 </div>
 <!-- /.content-wrapper -->
 <script src="../../../public/jquery/jquery.min.js"></script>
-<script src="../../../public/js/modalidades/insert.js"></script>
+<script src="js/new.js"></script>
 <?php require("../templates/footer.php"); ?>
