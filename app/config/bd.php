@@ -1,7 +1,6 @@
 <?php
 
-define('DB_HOST', 'localhost');
-define('DB_PORT', 5432);
-define('DB_NAME', 'pilates');
-define('DB_USER', 'root');
-define('DB_PASS', '123456');
+define('DB_HOST', 'c3FsMTU3Lm1haW4taG9zdGluZy5ldQ===');
+define('DB_NAME', 'dTUwMTkxMTA3OV9waWxhdGVz');
+define('DB_USER', 'dTUwMTkxMTA3OV9waWxhdGVz');
+define('DB_PASS', 'UTF3MmUzcjQ=');

@@ -69,39 +69,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="app/view/aluno/aluno.php" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Aluno</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a href="app/view/cidade/" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Cidade</p>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item">
                                         <a href="app/view/modalidade" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Modalidade</p>
                                         </a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a href="app/view/matricula/matricula.php" class="nav-link">
-                                            <i class="far fa-circle nav-icon"></i>
-                                            <p>Matrícula</p>
-                                        </a>
-                                    </li>
                                 </ul>
-                            </li>
-                            <li class="nav-item">
-                                <a href="#" class="nav-link">
-                                    <i class="nav-icon fas fa-th"></i>
-                                    <p>
-                                        Simple Link
-                                        <span class="right badge badge-primary">New</span>
-                                    </p>
-                                </a>
                             </li>
                         </ul>
                     </nav>
@@ -128,6 +101,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     <div class="container-fluid">
                         <div class="row">
 
+                            <?php
+                            $sql = new app\config\Sql();
+                            $sql->getConnect();
+                            ?>
 
                         </div>
                         <!-- /.row -->

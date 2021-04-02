@@ -6,7 +6,7 @@ class Modalidade extends EntityBase {
 
     private $descricao;
     //data em que foi cadastrado
-    private $data;
+    private $inserido;
     //A -> Ativo, E -> Excluído, T -> Todos
     private $status;
 
@@ -14,8 +14,8 @@ class Modalidade extends EntityBase {
         return $this->descricao;
     }
 
-    function getData() {
-        return $this->data;
+    function getInserido() {
+        return $this->inserido;
     }
 
     function getStatus() {
@@ -26,8 +26,8 @@ class Modalidade extends EntityBase {
         $this->descricao = $descricao;
     }
 
-    function setData($data): void {
-        $this->data = $data;
+    function setInserido($inserido): void {
+        $this->inserido = $inserido;
     }
 
     function setStatus($status): void {

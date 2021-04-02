@@ -1,6 +1,8 @@
 ﻿CREATE TABLE `modalidades` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `descricao` VARCHAR(100) NOT NULL,
+  `data` DATE NOT NULL COMMENT 'DATA DO CADASTRO',
+  `status` CHAR(1) NOT NULL COMMENT 'A -> Ativo, E -> Excluído, T -> Todos'  
   PRIMARY KEY (`id`));
 
 CREATE TABLE `professores` (
