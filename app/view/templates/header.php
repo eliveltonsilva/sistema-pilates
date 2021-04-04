@@ -10,7 +10,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-        <title>AdminLTE 3 | Starter</title>
+        <title>Pilates PHP</title>
 
         <!-- Font Awesome Icons -->
         <link rel="stylesheet" href="../../../public/plugins/fontawesome-free/css/all.min.css">
@@ -20,7 +20,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
         <!--alertifyjs-->
-        <link rel="stylesheet" href="alertifyjs/css/alertify.min.css">
+        <!-- CSS -->
+        <link rel="stylesheet" href="../../../public/alertifyjs/css/alertify.min.css"/>
+        <link rel="stylesheet" href="../../../public/alertifyjs/css/themes/default.min.css"/>
     </head>
 
     <body class="hold-transition sidebar-mini">
@@ -70,7 +72,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </a>
                                 <ul class="nav nav-treeview">
                                     <li class="nav-item">
-                                        <a href="../modalidade/index.php" class="nav-link">
+                                        <a href="../modality/index.php" class="nav-link">
                                             <i class="far fa-circle nav-icon"></i>
                                             <p>Modalidade</p>
                                         </a>
