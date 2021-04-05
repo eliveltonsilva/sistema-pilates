@@ -32,5 +32,24 @@ class ModalityModel {
         $stmt->execute();
         return $stmt->fetchAll();
     }
+    
+    public static function getId(\app\entities\Modality $modality){
+        $conn = new \app\config\Sql();
+        
+        $sql = "SELECT * FROM modalidades m WHERE m.id = :id";
+        $stmt = $conn->getConnect()->prepare($sql);
+        $stmt->bindValue(":id", $modality->getId());
+        $stmt->execute();
+        return $stmt->fetch();
+    }
+    
+    public function update(\app\entities\Modality $modality){
+        $conn = new \app\config\Sql();
+        $sql = "UPDATE modalidades m SET m.descricao = :descricao WHERE m.id = :id";
+        $stmt = $conn->getConnect()->prepare($sql);
+        $stmt->bindValue(":descricao", $modality->getDescription());
+        $stmt->bindValue(":id", $modality->getId());
+        $stmt->execute();
+    }
 
 }
