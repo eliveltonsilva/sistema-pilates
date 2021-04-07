@@ -1,7 +1,7 @@
 <?php require("../templates/header.php"); ?>
 
 <!-- Content Wrapper. Contains page content -->
-<div class="content-wrapper">
+<div id="content" class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">

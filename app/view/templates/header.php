@@ -20,7 +20,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 
         <!--alertifyjs-->
-        <!-- CSS -->
         <link rel="stylesheet" href="../../../public/alertifyjs/css/alertify.min.css"/>
         <link rel="stylesheet" href="../../../public/alertifyjs/css/themes/default.min.css"/>
     </head>

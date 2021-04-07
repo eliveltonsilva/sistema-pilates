@@ -31,8 +31,8 @@ switch ($_REQUEST['case']) {
             $tbody = "";
             $tbody .= "<tr id='mod_" . $value['id'] . "'>";
             $tbody .= "<td>";
-            $tbody .= "<a href='update.php?id=" . base64_encode($value['id']) . "' class='btn btn-outline-success btn-sm'>Editar</a>";
-            $tbody .= "<button id='remove' class='btn btn-outline-danger btn-sm ml-1'>Excluir</button>";
+            $tbody .= "<a href='update.php?id=" . $value['id'] . "' class='btn btn-outline-success btn-sm'>Editar</a>";
+            $tbody .= "<a href='remove.php?id_remove=" . $value['id'] . "' class='btn btn-outline-danger btn-sm ml-1'>Excluir</button>";
             $tbody .= "</td>";
             $tbody .= "<td>" . $value['id'] . "</td>";
             $tbody .= "<td>" . $value['descricao'] . "</td>";
@@ -46,12 +46,17 @@ switch ($_REQUEST['case']) {
 
     case "getId":
         $m->setId(filter_input(INPUT_POST, "id", FILTER_SANITIZE_NUMBER_INT));
-        echo json_encode(app\model\ModalityModel::getId($m));
+        echo json_encode(app\model\ModalityModel::getById($m));
         break;
     case "update":
         $m->setId(filter_input(INPUT_POST, "id", FILTER_SANITIZE_NUMBER_INT));
         $m->setDescription(filter_input(INPUT_POST, "modality", FILTER_SANITIZE_STRING));
         $model->update($m);
+        break;
+    case "delete":
+        $id = filter_input(INPUT_POST, "id_remove", FILTER_SANITIZE_NUMBER_INT);
+        Logs::writelog($id, 'log');
+        $model->delete($id);
         break;
 }
 
