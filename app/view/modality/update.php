@@ -1,4 +1,4 @@
-<?php require("../templates/header.php"); ?>
+<?php  require("../templates/header.php"); ?>
 
 <!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
@@ -25,7 +25,7 @@
                     <div class="form-row">
                         <div class="form-group col-md-1">
                             <label for="id">#</label>
-                            <input type="text" class="form-control" value="<?= base64_decode($_GET['id']) ?>" name="id" id="id" autocomplete="off">
+                            <input type="text" class="form-control" value="<?= $_GET['id'] ?>" name="id" id="id" autocomplete="off">
                         </div>
                         <div class="form-group col-md-12">
                             <label for="modality">Modalidade</label>

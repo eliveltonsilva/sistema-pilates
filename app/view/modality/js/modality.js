@@ -63,18 +63,20 @@ $("button#search").click(function (event) {
 
 //carregar campos da view de update com base no id
 $(document).ready(function () {
-    $.ajax({
-        method: "POST",
-        url: "../../controller/modality/modalityController.php",
-        dataType: "json",
-        data: {
-            case: "getId",
-            id: querySelector("#id").value
-        },
-        success: function (response) {
-            querySelector("#modality").value = response.descricao;
-        }
-    });
+    if (querySelector("#id") !== null) {
+        $.ajax({
+            method: "POST",
+            url: "../../controller/modality/modalityController.php",
+            dataType: "json",
+            data: {
+                case: "getId",
+                id: querySelector("#id").value
+            },
+            success: function (response) {
+                querySelector("#modality").value = response.descricao;
+            }
+        });
+    }
 });
 
 //editar a modalidade
@@ -105,6 +107,28 @@ $("button#update").click(function (event) {
             document.location.href = "index.php";
         });
     }
+});
+
+//excluir a modalidade
+$("button#remove").click(function (event) {
+    event.preventDefault();
+    $.ajax({
+        method: "POST",
+        url: "../../controller/modality/modalityController.php",
+        dataType: "json",
+        data: {
+            case: "delete",
+            id_remove: querySelector("#id_remove").value
+        },
+        success: function (response) {
+            console.log("success..." + response);
+        }
+    });
+    
+    alertify.alert("Atenção", "Excluído com sucesso!", function () {
+        alertify.message('OK');
+        document.location.href = "index.php";
+    });
 });
 
 function message(msg) {
