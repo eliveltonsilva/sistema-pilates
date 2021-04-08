@@ -10,8 +10,7 @@ switch ($_REQUEST['case']) {
         $modality = filter_input(INPUT_POST, "modality", FILTER_SANITIZE_STRING);
 
         //date of register
-        $date = new DateTime();
-        $date_format = $date->format("Y-m-d H:i:s");
+        $date_format = date("Y-m-d H:i:s");
 
         //satus default
         $status = "A";
@@ -28,6 +27,13 @@ switch ($_REQUEST['case']) {
         $m->setStatus(filter_input(INPUT_POST, "options", FILTER_SANITIZE_STRING));
 
         foreach (\app\model\ModalityModel::getByFilter($m) as $value) {
+
+            if($value['status'] === "A"){
+                $value['status'] = "Ativo";
+            }else if($value['status'] === "E"){
+                $value['status'] = "Excluído";
+            }
+
             $tbody = "";
             $tbody .= "<tr id='mod_" . $value['id'] . "'>";
             $tbody .= "<td>";

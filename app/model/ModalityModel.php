@@ -2,8 +2,6 @@
 
 namespace app\model;
 
-use Logs;
-
 class ModalityModel {
 
     public function insert(\app\entities\Modality $modality) {

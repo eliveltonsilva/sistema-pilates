@@ -102,8 +102,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <div class="row">
 
                             <?php
-                            $sql = new app\config\Sql();
-                            $sql->getConnect();
+                                // echo base64_encode("");
                             ?>
 
                         </div>
