@@ -1,14 +1,15 @@
 <?php
 
-require("../../../vendor/autoload.php");
+require("../../vendor/autoload.php");
 
 $m = new app\entities\Modality();
-$model = new app\model\ModalityModel();
+$controller = new app\controller\ModalityController();
 
 switch ($_REQUEST['case']) {
     case "new":
         $modality = filter_input(INPUT_POST, "modality", FILTER_SANITIZE_STRING);
 
+        $m->setDescription($modality);
         //date of register
         $date_format = date("Y-m-d H:i:s");
 
@@ -18,19 +19,17 @@ switch ($_REQUEST['case']) {
         $m->setDescription($modality);
         $m->setInserted($date_format);
         $m->setStatus("A");
-
-
-        $model->insert($m);
+        $controller->insert($m);
         break;
     case "getFilter":
         $m->setDescription(filter_input(INPUT_POST, "modality", FILTER_SANITIZE_STRING));
         $m->setStatus(filter_input(INPUT_POST, "options", FILTER_SANITIZE_STRING));
 
-        foreach (\app\model\ModalityModel::getByFilter($m) as $value) {
+        foreach (\app\controller\ModalityController::getByFilter($m) as $value) {
 
-            if($value['status'] === "A"){
+            if ($value['status'] === "A") {
                 $value['status'] = "Ativo";
-            }else if($value['status'] === "E"){
+            } else if ($value['status'] === "E") {
                 $value['status'] = "Excluído";
             }
 
@@ -49,20 +48,19 @@ switch ($_REQUEST['case']) {
             echo $tbody;
         }
         break;
-
     case "getId":
         $m->setId(filter_input(INPUT_POST, "id", FILTER_SANITIZE_NUMBER_INT));
-        echo json_encode(app\model\ModalityModel::getById($m));
+        echo json_encode(app\controller\ModalityController::getById($m));
         break;
     case "update":
         $m->setId(filter_input(INPUT_POST, "id", FILTER_SANITIZE_NUMBER_INT));
         $m->setDescription(filter_input(INPUT_POST, "modality", FILTER_SANITIZE_STRING));
-        $model->update($m);
+        echo json_encode(filter_input(INPUT_POST, "modality", FILTER_SANITIZE_STRING));
+        $controller->update($m);
         break;
     case "delete":
         $id = filter_input(INPUT_POST, "id_remove", FILTER_SANITIZE_NUMBER_INT);
-        Logs::writelog($id, 'log');
-        $model->delete($id);
+        $controller->delete($id);
         break;
 }
 
