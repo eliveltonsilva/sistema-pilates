@@ -23,14 +23,14 @@ $("button#save").click(function (event) {
     } else {
         jQuery.ajax({
             type: "POST",
-            url: "../../controller/modality/modalityController.php",
+            url: "../../ajax/modality_ajax.php",
             dataType: "json",
             data: {
                 case: "new",
                 modality: u_modality.value
             },
             success: function (response) {
-                console.log("sucess..." + response);
+                console.log(response);
             }
         });
         resetInput();
@@ -47,7 +47,7 @@ $("button#search").click(function (event) {
     } else {
         jQuery.ajax({
             method: "POST",
-            url: "../../controller/modality/modalityController.php",
+            url: "../../ajax/modality_ajax.php",
             data: {
                 case: "getFilter",
                 modality: querySelector("#modality").value,
@@ -66,7 +66,7 @@ $(document).ready(function () {
     if (querySelector("#id") !== null) {
         $.ajax({
             method: "POST",
-            url: "../../controller/modality/modalityController.php",
+            url: "../../ajax/modality_ajax.php",
             dataType: "json",
             data: {
                 case: "getId",
@@ -90,7 +90,7 @@ $("button#update").click(function (event) {
     } else {
         $.ajax({
             method: "POST",
-            url: "../../controller/modality/modalityController.php",
+            url: "../../ajax/modality_ajax.php",
             dataType: "json",
             data: {
                 case: "update",
@@ -114,7 +114,7 @@ $("button#remove").click(function (event) {
     event.preventDefault();
     $.ajax({
         method: "POST",
-        url: "../../controller/modality/modalityController.php",
+        url: "../../ajax/modality_ajax.php",
         dataType: "json",
         data: {
             case: "delete",
