@@ -11,9 +11,9 @@ class TeacherModel{
         $conn = new Sql();
 
         $sql = "INSERT INTO `professores` 
-                    (`nome`, `dt_nascimento`, `email`, `cpf`, `sexo`, `celular`, `telefone`, `inserido`, `status`) 
+                    (`nome`, `dt_nascimento`, `email`, `cpf`, `sexo`, `celular`, `inserido`, `status`) 
                 VALUES 
-                    (:name, :dt_bith, :mail, :cpf, :sex, :cell, :phone, :inserted, :status); ";
+                    (:name, :dt_bith, :mail, :cpf, :sex, :cell, :inserted, :status); ";
 
         $params = [":name" => $teacher->getName(),
             ":dt_bith" => $teacher->getDateBirth(),
@@ -21,7 +21,6 @@ class TeacherModel{
             ":cpf" => $teacher->getCpf(),
             ":sex" => $teacher->getSex(),
             ":cell" => $teacher->getCell(),
-            ":phone" => $teacher->getPhone(),
             ":inserted" => $teacher->getInserted(),
             ":status" => $teacher->getStatus()];
 
@@ -31,14 +30,14 @@ class TeacherModel{
     public static function getByFilter(Teacher $teacher) {
         $conn = new Sql();
 
-        if ($$teacher->getStatus() === "T") {
-            $sql = "SELECT * FROM professores p WHERE p.nome ASC";
+        if ($teacher->getStatus() === "T") {
+            $sql = "SELECT * FROM professores p ORDER BY p.nome ASC";
             $stmt = $conn->getConnect()->prepare($sql);
         } else {
             $sql = "SELECT * FROM professores p WHERE p.nome LIKE ?  AND p.status = ? ORDER BY p.nome ASC";
             $stmt = $conn->getConnect()->prepare($sql);
-            $stmt->bindValue(1, "%{$$teacher->getDescription()}%");
-            $stmt->bindValue(2, $$teacher->getStatus());
+            $stmt->bindValue(1, "%{$teacher->getName()}%");
+            $stmt->bindValue(2, $teacher->getStatus());
         }
         $stmt->execute();
         return $stmt->fetchAll();
@@ -60,7 +59,7 @@ class TeacherModel{
                     professores p 
                 SET 
                     p.nome = :name , p.dt_nascimento =  :dt_bith , p.email = :mail, p.cpf = :cpf, 
-                    p.sexo = :sex, p.celular = :cell, p.telefone = :phone, p.inserido = :inserted, p.status = :status
+                    p.sexo = :sex, p.celular = :cell, p.inserido = :inserted, p.status = :status
                 WHERE 
                     p.id = :id";
 
@@ -71,7 +70,6 @@ class TeacherModel{
             ":cpf" => $teacher->getCpf(),
             ":sex" => $teacher->getSex(),
             ":cell" => $teacher->getCell(),
-            ":phone" => $teacher->getPhone(),
             ":inserted" => $teacher->getInserted(),
             ":status" => $teacher->getStatus(),
             ":id" => $teacher->getId()];

@@ -14,6 +14,7 @@ switch ($_REQUEST['case']) {
 
         $m->setDescription($modality);
         //date of register
+        date_default_timezone_set('America/Sao_Paulo');
         $date_format = date("Y-m-d H:i:s");
 
         //satus default
@@ -28,7 +29,7 @@ switch ($_REQUEST['case']) {
         $m->setDescription(filter_input(INPUT_POST, "modality", FILTER_SANITIZE_STRING));
         $m->setStatus(filter_input(INPUT_POST, "options", FILTER_SANITIZE_STRING));
 
-        foreach (\app\controller\ModalityController::getByFilter($m) as $value) {
+        foreach (ModalityController::getByFilter($m) as $value) {
 
             if ($value['status'] === "A") {
                 $value['status'] = "Ativo";
