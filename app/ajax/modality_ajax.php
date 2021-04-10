@@ -2,8 +2,11 @@
 
 require("../../vendor/autoload.php");
 
-$m = new app\entities\Modality();
-$controller = new app\controller\ModalityController();
+use app\entities\Modality;
+use app\controller\ModalityController;
+
+$m = new Modality();
+$controller = new ModalityController();
 
 switch ($_REQUEST['case']) {
     case "new":
