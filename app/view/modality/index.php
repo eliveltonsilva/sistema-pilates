@@ -79,5 +79,5 @@
 
 <script src="../../../public/alertifyjs/alertify.min.js"></script>
 <script src="../../../public/jquery/jquery.min.js"></script>
-<script src="js/modality.js"></script>
+<script src="js/main.js"></script>
 <?php require("../templates/footer.php"); ?>

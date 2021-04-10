@@ -2,16 +2,20 @@
 
 namespace app\model;
 
+use app\entities\Modality;
+use app\model\Execute;
+use app\config\Sql;
+
 class ModalityModel {
 
-    public function insert(\app\entities\Modality $modality) {
+    public function insert(Modality $modality) {
         $sql = "INSERT INTO modalidades (descricao, inserido, status) VALUES (:descricao, :inserido, :status)";
         $params = [":descricao" => $modality->getDescription(), ":inserido" => $modality->getInserted(), ":status" => $modality->getStatus()];
-        $this->run($sql, $params, "exe");
+        Execute::run($sql, $params, "exe");
     }
 
-    public static function getByFilter(\app\entities\Modality $modality) {
-        $conn = new \app\config\Sql();
+    public static function getByFilter(Modality $modality) {
+        $conn = new Sql();
 
         if ($modality->getStatus() === "T") {
             $sql = "SELECT * FROM modalidades m ORDER BY m.descricao ASC";
@@ -26,8 +30,8 @@ class ModalityModel {
         return $stmt->fetchAll();
     }
 
-    public static function getById(\app\entities\Modality $modality) {
-        $conn = new \app\config\Sql();
+    public static function getById(Modality $modality) {
+        $conn = new Sql();
         $sql = "SELECT * FROM modalidades m WHERE m.id = :id";
         $stmt = $conn->getConnect()->prepare($sql);
         $stmt->bindValue(":id", $modality->getId());
@@ -35,27 +39,16 @@ class ModalityModel {
         return $stmt->fetch();
     }
 
-    public function update(\app\entities\Modality $modality) {
+    public function update(Modality $modality) {
         $sql = "UPDATE modalidades m SET m.descricao = :descricao WHERE m.id = :id";
         $params = [":descricao" => $modality->getDescription(), ":id" => $modality->getId()];
-        self::run($sql, $params, "exe");
+        Execute::run($sql, $params, "exe");
     }
 
     public function delete($id) {
         $sql = "UPDATE modalidades m SET m.status = 'E' WHERE m.id = :id";
         $params = [":id" => $id];
-        self::run($sql, $params, "exe");
-    }
-
-    //private methods
-    private static function run($sql, $params = [], $case) {
-        $conn = new \app\config\Sql();
-        switch ($case) {
-            case "exe":
-                $stmt = $conn->getConnect()->prepare($sql);
-                $stmt->execute($params);
-                break;
-        }
+        Execute::run($sql, $params, "exe");
     }
 
 }
