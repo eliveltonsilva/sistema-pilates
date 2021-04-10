@@ -10,7 +10,6 @@ class Teacher extends EntityBase
     private $cpf;
     private $sex;
     private $cell;
-    private $phone;
     private $inserted;
     //A -> Active, E -> deleted, T -> All
     private $status;
@@ -133,26 +132,6 @@ class Teacher extends EntityBase
     public function setCell($cell)
     {
         $this->cell = $cell;
-
-        return $this;
-    }
-
-    /**
-     * Get the value of phone
-     */
-    public function getPhone()
-    {
-        return $this->phone;
-    }
-
-    /**
-     * Set the value of phone
-     *
-     * @return  self
-     */
-    public function setPhone($phone)
-    {
-        $this->phone = $phone;
 
         return $this;
     }

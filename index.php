@@ -102,7 +102,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <div class="row">
 
                             <?php
-                                // echo base64_encode("");
+                            date_default_timezone_set('America/Sao_Paulo');
+                            echo date("Y-m-d H:i:s");
                             ?>
 
                         </div>

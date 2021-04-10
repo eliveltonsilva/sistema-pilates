@@ -68,7 +68,8 @@
                             <th>Cpf</th>
                             <th>Sexo</th>
                             <th>Celular</th>
-                            <th>Telefone</th>
+                            <th>Inserido em</th>
+                            <th>Status</th>
                         </tr>
                     </thead>
                     <tbody id="dados">

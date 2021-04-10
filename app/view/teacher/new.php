@@ -23,20 +23,33 @@
             <div class="card-body">
                 <form id="frm">
                     <div class="form-row">
-                        <div class="form-group col-md-8">
+                        <div class="form-group col-md-6">
                             <label for="name">Nome</label>
                             <input type="text" class="form-control" name="name" id="name" autocomplete="off">
                         </div>
-                        <div class="form-group col-md-2">
+                        <div class="form-group col-md-6">
+                            <label for="mail">Email</label>
+                            <input type="text" class="form-control" name="mail" id="mail" autocomplete="off">
+                        </div>
+                        <div class="form-group col-md-3">
                             <label for="birth">Data Nascimento</label>
                             <input type="date" class="form-control" name="birth" id="birth" autocomplete="off">
                         </div>
-                        <div class="form-group col-md-2">
+                        <div class="form-group col-md-3">
                             <label for="sex">Sexo</label>
                             <select name="sex" id="sex" class="form-control">
                                 <option value="M">Masculino</option>
                                 <option value="F">Feminino</option>
                             </select>
+                        </div>
+                        
+                        <div class="form-group col-md-3">
+                            <label for="cpf">Cpf</label>
+                            <input type="text" class="form-control" name="cpf" id="cpf" autocomplete="off">
+                        </div>
+                        <div class="form-group col-md-3">
+                            <label for="cell">Celular</label>
+                            <input type="text" class="form-control" name="cell" id="cell" autocomplete="off">
                         </div>
                     </div>
                 </form>
