@@ -61,7 +61,6 @@
                     <thead>
                         <tr>
                             <th>Ações</th>
-                            <th>#</th>
                             <th>Modalidade</th>
                             <th>Inserido em</th>
                             <th>Status</th>
