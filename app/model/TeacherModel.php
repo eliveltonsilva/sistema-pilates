@@ -68,7 +68,9 @@ class TeacherModel{
                     professores p 
                 SET 
                     p.nome = :name , p.dt_nascimento =  :dt_bith , p.email = :mail, p.cpf = :cpf, 
-                    p.sexo = :sex, p.celular = :cell, p.inserido = :inserted
+                    p.sexo = :sex, p.celular = :cell, p.cep = :cep, p.cidade = :cidade, 
+                    p.estado = :estado, p.endereco = :endereco, p.numero = :numero, 
+                    p.bairro = :bairro, p.complemento = :complemento
                 WHERE 
                     p.id = :id";
 
@@ -79,7 +81,6 @@ class TeacherModel{
             ":cpf" => $teacher->getCpf(),
             ":sex" => $teacher->getSex(),
             ":cell" => $teacher->getCell(),
-            ":inserted" => $teacher->getInserted(),
             ":cep" => $teacher->getCep(),
             ":cidade" => $teacher->getCity(),
             ":estado" => $teacher->getUf(),

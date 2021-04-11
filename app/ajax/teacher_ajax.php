@@ -95,7 +95,6 @@ switch ($_REQUEST['case']) {
         $sex = filter_input(INPUT_POST, "sex", FILTER_SANITIZE_STRING);
         $cpf = filter_input(INPUT_POST, "cpf", FILTER_SANITIZE_STRING);
         $cell = filter_input(INPUT_POST, "cell", FILTER_SANITIZE_STRING);
-        $id = filter_input(INPUT_POST, "id", FILTER_SANITIZE_NUMBER_INT);
         $cep = filter_input(INPUT_POST, "cep", FILTER_SANITIZE_STRING);
         $city = filter_input(INPUT_POST, "city", FILTER_SANITIZE_STRING);
         $uf = filter_input(INPUT_POST, "uf", FILTER_SANITIZE_STRING);
@@ -103,6 +102,7 @@ switch ($_REQUEST['case']) {
         $number = filter_input(INPUT_POST, "number", FILTER_SANITIZE_NUMBER_INT);
         $district = filter_input(INPUT_POST, "district", FILTER_SANITIZE_STRING);
         $complement = filter_input(INPUT_POST, "complement", FILTER_SANITIZE_STRING);
+        $id = filter_input(INPUT_POST, "id", FILTER_SANITIZE_NUMBER_INT);
 
         $t->setName($name);
         $t->setMail($mail);
@@ -118,7 +118,7 @@ switch ($_REQUEST['case']) {
         $t->setDistrict($district);
         $t->setComplement($complement);
         $t->setId($id);
-
+        Logs::writelog($t->getId(), "logid");
         $controller->update($t);
         break;
     case "delete":

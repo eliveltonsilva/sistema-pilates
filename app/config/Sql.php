@@ -5,8 +5,8 @@ namespace app\config;
 use PDO;
 use PDOException;
 
-// require("host.php");
-require("localhost.php");
+require("host.php");
+//require("localhost.php");
 
 class Sql {
 

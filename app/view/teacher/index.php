@@ -61,7 +61,6 @@
                     <thead>
                         <tr>
                             <th>Ações</th>
-                            <th>#</th>
                             <th>Professor</th>
                             <th>Dt Nasc</th>
                             <th>Email</th>
