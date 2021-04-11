@@ -38,12 +38,11 @@ switch ($_REQUEST['case']) {
             }
 
             $tbody = "";
-            $tbody .= "<tr id='mod_" . $value['id'] . "'>";
+            $tbody .= "<tr>";
             $tbody .= "<td>";
             $tbody .= "<a href='update.php?id=" . $value['id'] . "' class='btn btn-outline-success btn-sm'>Editar</a>";
             $tbody .= "<a href='remove.php?id_remove=" . $value['id'] . "' class='btn btn-outline-danger btn-sm ml-1'>Excluir</button>";
             $tbody .= "</td>";
-            $tbody .= "<td>" . $value['id'] . "</td>";
             $tbody .= "<td>" . $value['descricao'] . "</td>";
             $tbody .= "<td>" . $value['inserido'] . "</td>";
             $tbody .= "<td>" . $value['status'] . "</td>";
@@ -59,7 +58,6 @@ switch ($_REQUEST['case']) {
     case "update":
         $m->setId(filter_input(INPUT_POST, "id", FILTER_SANITIZE_NUMBER_INT));
         $m->setDescription(filter_input(INPUT_POST, "modality", FILTER_SANITIZE_STRING));
-        echo json_encode(filter_input(INPUT_POST, "modality", FILTER_SANITIZE_STRING));
         $controller->update($m);
         break;
     case "delete":

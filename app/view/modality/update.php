@@ -24,8 +24,7 @@
                 <form id="frm">
                     <div class="form-row">
                         <div class="form-group col-md-1">
-                            <label for="id">#</label>
-                            <input type="text" class="form-control" value="<?= $_GET['id'] ?>" name="id" id="id" autocomplete="off">
+                            <input type="hidden" class="form-control" value="<?= $_GET['id'] ?>" name="id" id="id" autocomplete="off">
                         </div>
                         <div class="form-group col-md-12">
                             <label for="modality">Modalidade</label>

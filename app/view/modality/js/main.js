@@ -4,11 +4,7 @@ function querySelector(value) {
 }
 
 function resetInput() {
-    let modality = querySelector("#modality");
-
-    querySelector("#error-modality").display = "none";
-    modality.classList.remove("is-invalid");
-    modality.value = "";
+   $("#frm")[0].reset();
 }
 
 //adicionar nova modalidade

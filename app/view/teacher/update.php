@@ -7,7 +7,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-12">
-                    <h1 class="m-0 text-dark">Novo <a style="color: #007bff" href="index.php">Professor</a></h1>
+                    <h1 class="m-0 text-dark">Alteração dos dados do <a style="color: #007bff" href="index.php">Professor</a></h1>
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -18,10 +18,11 @@
     <div class="content">
         <div class="card card-primary">
             <div class="card-header">
-                Cadastro de Professores
+                Alteração de Professores
             </div>
             <div class="card-body">
                 <form id="frm">
+                <input type="hidden" name="id" value="<?= $_GET['id'] ?>" id="id" class="form-control">
                     <div class="form-row">
                         <div class="form-group col-md-6">
                             <label for="name">Nome</label>
@@ -42,6 +43,7 @@
                                 <option value="F">Feminino</option>
                             </select>
                         </div>
+                        
                         <div class="form-group col-md-3">
                             <label for="cpf">Cpf</label>
                             <input type="text" class="form-control" name="cpf" id="cpf" autocomplete="off">
@@ -83,7 +85,7 @@
             </div>
             <div class="card-footer">
                 <div class="form-group col-md-12 text-center">
-                    <button id="save" class="bg-gradient-success btn btn-lg btn-xs-block"><i class="fa fa-save" aria-hidden="true"></i>&nbsp;Salvar</button>
+                    <button id="update" class="bg-gradient-success btn btn-lg btn-xs-block"><i class="fa fa-save" aria-hidden="true"></i>&nbsp;Salvar</button>
                     <a href="index.php" class="btn-default btn btn-xs-block"><i class="fa fa-reply" aria-hidden="true"></i>&nbsp;Voltar</a>
                 </div>
             </div>
